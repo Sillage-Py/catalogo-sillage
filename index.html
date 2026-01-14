@@ -43,7 +43,6 @@
             z-index: 50;
         }
 
-        /* Clase para ocultar el header */
         .header-hidden { transform: translateY(-100%); }
         
         .card-premium { 
@@ -118,6 +117,12 @@
         .btn-wa { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
         .content-wrapper { padding-top: 240px; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* Estilos para el Acordeón FAQ */
+        .faq-item { border-bottom: 1px solid #262626; }
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .faq-item.active .faq-content { max-height: 300px; padding-bottom: 1.5rem; }
+        .faq-item.active svg { transform: rotate(180deg); color: var(--gold); }
     </style>
 </head>
 <body class="pb-32">
@@ -144,13 +149,83 @@
     </header>
 
     <div class="content-wrapper">
+        <!-- Catálogo de Productos -->
         <main id="catalog" class="max-w-xl mx-auto px-4 py-4 space-y-10"></main>
         
         <div id="no-results" class="hidden text-center py-20">
             <p class="text-stone-600 text-sm italic font-serif">No encontramos fragancias que coincidan.</p>
         </div>
+
+        <!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
+        <section class="max-w-xl mx-auto px-4 mt-20 mb-10 pt-10 border-t border-stone-900">
+            <div class="text-center mb-8">
+                <h2 class="text-xl font-serif font-bold gold-text uppercase tracking-widest">Preguntas Frecuentes</h2>
+                <p class="text-[9px] text-stone-500 uppercase tracking-widest mt-1">Conocé la excelencia detrás de Sillage</p>
+            </div>
+
+            <div class="space-y-1">
+                <!-- FAQ Origen (Nueva) -->
+                <div class="faq-item px-2 cursor-pointer" onclick="this.classList.toggle('active')">
+                    <div class="flex items-center justify-between py-5">
+                        <span class="text-[10px] font-bold text-stone-300 uppercase tracking-wider">¿Cuál es el origen de sus esencias?</span>
+                        <svg class="w-4 h-4 text-stone-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-content">
+                        <p class="text-[11px] text-stone-500 leading-relaxed italic">
+                            Nuestros aceites esenciales son importados directamente de Francia, cuna de la perfumería mundial, asegurando la máxima pureza. Una vez en Paraguay, nuestras fragancias son cuidadosamente ensambladas y maceradas bajo estándares de alta gama para lograr la fijación perfecta adaptada a nuestro clima.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Feromonas -->
+                <div class="faq-item px-2 cursor-pointer" onclick="this.classList.toggle('active')">
+                    <div class="flex items-center justify-between py-5">
+                        <span class="text-[10px] font-bold text-stone-300 uppercase tracking-wider">¿Para qué sirven las feromonas?</span>
+                        <svg class="w-4 h-4 text-stone-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-content">
+                        <p class="text-[11px] text-stone-500 leading-relaxed italic">
+                            Las feromonas son compuestos químicos que actúan como señales invisibles de atracción y magnetismo. Al incorporarlas a tu fragancia, no solo olés bien, sino que proyectás una mayor seguridad y presencia, potenciando tu atractivo natural de manera sutil pero efectiva.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Duración -->
+                <div class="faq-item px-2 cursor-pointer" onclick="this.classList.toggle('active')">
+                    <div class="flex items-center justify-between py-5">
+                        <span class="text-[10px] font-bold text-stone-300 uppercase tracking-wider">¿Cuál es el tiempo de fijación?</span>
+                        <svg class="w-4 h-4 text-stone-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-content">
+                        <p class="text-[11px] text-stone-500 leading-relaxed italic">
+                            Nuestras fragancias son concentradas (Eau de Parfum), lo que permite una fijación prolongada de entre 8 a 12 horas. La persistencia puede variar según el tipo de piel y las notas olfativas de la inspiración seleccionada.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Envíos -->
+                <div class="faq-item px-2 cursor-pointer" onclick="this.classList.toggle('active')">
+                    <div class="flex items-center justify-between py-5">
+                        <span class="text-[10px] font-bold text-stone-300 uppercase tracking-wider">¿Realizan envíos a todo el país?</span>
+                        <svg class="w-4 h-4 text-stone-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-content">
+                        <p class="text-[11px] text-stone-500 leading-relaxed italic">
+                            Contamos con servicio de logística para todo Paraguay. En Gran Asunción realizamos entregas vía delivery y al interior del país mediante las transportadoras de mayor confianza para asegurar que tu pedido llegue en perfectas condiciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Logo -->
+        <footer class="text-center py-10 opacity-30">
+            <h2 class="text-lg font-serif font-bold tracking-[0.3em]">SILLAGE</h2>
+            <p class="text-[6px] tracking-[0.2em] mt-1">© 2026 TODOS LOS DERECHOS RESERVADOS</p>
+        </footer>
     </div>
 
+    <!-- Barra de Carrito -->
     <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-[#111] border-t border-stone-800 p-6 translate-y-full z-[100] rounded-t-[2rem] transition-transform duration-500 shadow-[0_-10px_40px_rgba(0,0,0,0.8)]">
         <div class="max-w-xl mx-auto flex items-center justify-between">
             <div>
@@ -165,9 +240,6 @@
 
     <script>
         const PRECIO_FEROMONAS = 15000;
-        // ==========================================
-        // CONFIGURACIÓN: CAMBIA TU NÚMERO AQUÍ 
-        // ==========================================
         const MI_NUMERO = "595981000000"; 
 
         const perfumes = [
@@ -211,12 +283,10 @@
         let searchQuery = '';
         let lastScrollY = window.scrollY;
 
-        // Inicializar el estado de cantidad para cada perfume
         perfumes.forEach(p => {
             state[p.id] = { size: '50ml', fero: false, qty: 0 };
         });
 
-        // Lógica para esconder el header al bajar
         window.addEventListener("scroll", () => {
             const header = document.getElementById("mainHeader");
             if (window.scrollY > lastScrollY && window.scrollY > 100) {
@@ -233,19 +303,8 @@
         function setSize(id, size) { state[id].size = size; render(); updateCart(); }
         function toggleFero(id) { state[id].fero = !state[id].fero; render(); updateCart(); }
         
-        function add(id) { 
-            state[id].qty++; 
-            render(); 
-            updateCart(); 
-        }
-        
-        function remove(id) { 
-            if (state[id].qty > 0) {
-                state[id].qty--; 
-                render(); 
-                updateCart(); 
-            }
-        }
+        function add(id) { state[id].qty++; render(); updateCart(); }
+        function remove(id) { if (state[id].qty > 0) { state[id].qty--; render(); updateCart(); } }
 
         function handleSearch() { 
             searchQuery = document.getElementById('searchBar').value.toLowerCase(); 
@@ -344,7 +403,6 @@
                                         <p class="text-xl font-serif font-bold text-white">${formatGs(precioConTodo)}</p>
                                     </div>
                                     
-                                    <!-- AQUÍ SE CORRIGIÓ EL SELECTOR DE CANTIDAD -->
                                     <div class="flex items-center gap-1">
                                         ${s.qty === 0 ? `
                                             <button onclick="add(${p.id})" class="bg-white text-black px-6 py-3 rounded-xl text-[9px] font-black uppercase tracking-widest active:scale-95 transition-all">Agregar</button>
@@ -369,7 +427,6 @@
             const flag = "\uD83C\uDDF5\uD83C\uDDFE"; 
             const fire = "\uD83D\uDD25"; 
             const sparkles = "\u2728"; 
-            const star = "\u2B50"; 
             
             let msg = `¡Hola Sillage! ${flag} Quiero realizar un pedido:\n\n`;
             let total = 0;
@@ -384,15 +441,13 @@
                     
                     msg += `${diamond} *${p.nombre.toUpperCase()}* (${s.size})\n`;
                     msg += `   Cant: ${s.qty} | ${s.fero ? fire + ' Con Feromonas' : sparkles + ' Estándar'}\n`;
-                    if(p.enOferta) msg += `   ${star} *OFERTA ACTIVADA*\n`;
                     msg += `   Subtotal: ${formatGs(finalConFero * s.qty)}\n\n`;
                     total += finalConFero * s.qty;
                 }
             });
             
             msg += `*Total Final: ${formatGs(total)}*`;
-            const encodedMsg = encodeURIComponent(msg); 
-            window.open(`https://api.whatsapp.com/send?phone=${MI_NUMERO}&text=${encodedMsg}`, '_blank');
+            window.open(`https://api.whatsapp.com/send?phone=${MI_NUMERO}&text=${encodeURIComponent(msg)}`, '_blank');
         }
 
         window.onload = render;
